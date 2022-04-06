@@ -1,0 +1,133 @@
+<div class="signin" *ngIf="isLoginMode">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+          <h2>Sign In</h2>
+        </div>
+    </div><hr>
+      
+    <form class="form-group" [formGroup]="signinForm" (ngSubmit)="onSignin()">
+        <div class="row">
+            <div class="col-12">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" placeholder="Email" id="email" required
+                        name="email" formControlName="email">
+                    </div>
+                </div>
+      
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <label for="pass">Password</label>
+                        <input type="password" class="form-control" placeholder="Password" id="pass" required
+                        name="password" minlength="6" formControlName="password">
+                    </div>
+                </div>
+      
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <label>Who are You ?</label><br>
+                        <label for="student"><input type="radio" name="user" value="Student" 
+                            formControlName="user">Student</label><br>
+                        <label for="teacher"><input type="radio" name="user" value="Teacher" 
+                            formControlName="user">Teacher</label>
+                    </div>
+                </div>
+      
+                <div class="row d-flex justify-content-center">
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-primary">Sign In</button>
+                    </div>
+                </div>
+      
+                <div class="row d-flex justify-content-center">
+                    <div class="col-2">
+                        <small>Not regitered ?</small><br>
+                        <button type="button" class="btn btn-link btn-small"
+                        (click) = onSwitchMode()>Sign Up</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="signup" *ngIf="!isLoginMode">
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <h2>Sign Up</h2>
+        </div>
+    </div>
+    <hr>
+      
+    <form class="form-group" [formGroup]="signupForm" (ngSubmit)="onSignup()">
+        <div class="row d-flex justify-content-center">
+            <div class="col-4">
+                <label for="fname">First Name</label>
+                <input type="text" name="fname" id="fname" class="form-control"
+                    placeholder="First Name" required formControlName="fname">
+            </div>
+            <div class="col-4">
+                <label for="lname">Last Name</label>
+                <input type="text" name="lname" id="lname" class="form-control"
+                    placeholder="Last Name" required formControlName="lname">
+            </div>
+        </div>
+      
+        <div class="row d-flex justify-content-center">
+            <div class="col-4">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" class="form-control"
+                    placeholder="Email" formControlName="email">
+            </div>
+            <div class="col-4">
+                <label for="pass">Password</label>
+                <input type="password" id="pass" name="password" class="form-control"
+                    placeholder="Password" minlength="6" required formControlName="password">
+            </div>
+        </div>
+      
+        <div class="row d-flex justify-content-center">
+            <div class="col-4">
+                <label for="school">School/ Collage</label>
+                <input type="text" id="school" name="school" class="form-control"
+                    placeholder="School/College" required formControlName="school">
+            </div>
+            <div class="col-4">
+                <label>Who are You ?</label><br>
+                <select name="user" id="user" formControlName="user" class="form-select">
+                    <option value="Student">Student</option>
+                    <option value="Teacher">Teacher</option>
+                </select>
+                        
+            </div>
+        </div>
+  
+        <div class="row d-flex justify-content-center">
+            <div class="col-4">
+                <label for="phone">Phone number</label>
+                <input type="number" id="phone" name="phone" class="form-control"
+                    placeholder="Phone Number" required formControlName="phone">
+            </div>
+            <div class="col-4">
+                <label for="altPhone">Alternate Phone number</label>
+                <input type="number" id="altPhone" name="altPhone" class="form-control"
+                    placeholder="Alternate Phone Number" required formControlName="altPhone">
+            </div>
+        </div>
+      
+        <div class="row d-flex justify-content-center m-3">
+            <div class="col-2">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+            </div>
+        </div>
+      
+        <div class="row d-flex justify-content-center">
+            <div class="col-3">
+                <small>Already have an account??
+                <button class="btn btn-link btn-small" type="button"
+                    (click) = onSwitchMode()>Sign in</button></small>
+            </div>
+        </div>
+    </form>
+</div>

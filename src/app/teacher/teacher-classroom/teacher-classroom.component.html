@@ -1,0 +1,41 @@
+<div class="container center">
+    <div *ngIf="!isLoading; else loading">
+        <div *ngIf="myRooms.length > 0; else noRooms">
+            <div>
+                <h3>Your Classrooms are listed below..</h3>
+                <h6>Click on it for more details</h6>
+            </div>
+            <table class="table table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>Sl No</th>
+                        <th>Room Code</th>
+                        <th>School/College</th>
+                        <th>Class Teacher</th>
+                        <th>Subject</th>
+                        <th>No fo Students present</th>
+                        <th>Students limit</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let room of myRooms; let i = index" (click)="info(i)">
+                        <td>{{i+1}}</td>
+                        <td>{{room.roomCode}}</td>
+                        <td>{{room.school}}</td>
+                        <td>{{room.classTeacher.fname + " " + room.classTeacher.lname}}</td>
+                        <td>{{room.subject}}</td>
+                        <td >{{room.students.length}}</td>
+                        <td>{{room.maxStudents}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <ng-template #noRooms>
+            <h3>No Classrooms are present for You</h3>
+            <h5>Please Create one and invite Students to join</h5>
+        </ng-template>
+    </div>
+    <ng-template #loading>
+        <h5>Loading... please Wait</h5>
+    </ng-template>
+</div>

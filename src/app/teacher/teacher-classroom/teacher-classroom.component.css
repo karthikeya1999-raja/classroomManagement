@@ -1,0 +1,9 @@
+.center{
+    justify-content: center;
+    text-align: center;
+    margin: 20px auto;
+}
+
+tr:hover{
+    cursor: pointer;
+}

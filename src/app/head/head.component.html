@@ -1,0 +1,47 @@
+<div class="container-fulid">
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <h1>Classroom Management</h1>
+    </div>
+  </div>
+  
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark">
+    <a class="navbar-brand a"><span class="fas fa-video"></span> Meet</a>
+  
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#myNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item" *ngIf="isLogin && type=='Student'">
+            <a class="nav-link a" routerLink="/student" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+          <li class="nav-item" *ngIf="isLogin && type=='Teacher'">
+            <a class="nav-link a" routerLink="/teacher" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">Home</a></li>
+          <li class="nav-item" *ngIf="isLogin && type=='Student'">
+            <a class="nav-link a" routerLink="/student/classrooms" routerLinkActive="active" 
+            >My Classrooms</a></li>
+          <li class="nav-item" *ngIf="isLogin && type=='Teacher'">
+            <a class="nav-link a" routerLink="/teacher/classrooms" routerLinkActive="active"
+            >My Classrooms</a></li>
+          <li class="nav-item" *ngIf="isLogin && type=='Student'">
+            <a class="nav-link a" routerLink="/student/joinclassroom" routerLinkActive="active" 
+            [routerLinkActiveOptions]="{exact: true}">Join Classroom</a></li>
+          <li class="nav-item" *ngIf="isLogin && type=='Teacher'">
+            <a class="nav-link a" routerLink="/teacher/createclassroom" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact: true}">Create Classroom</a></li>
+        </ul>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end">
+      <ul class="nav navbar-nav ml-auto">
+        <li class="nav-item" *ngIf="!isLogin">
+          <a class="nav-link a" routerLink="/auth" routerLinkActive="active">
+            <span class="fas fa-sign-in-alt"></span>Sign in</a></li>
+        <li class="nav-item" (click) = logout()><a class="nav-link a" *ngIf="isLogin">
+          <span class="fas fa-sign-out-alt"></span>Logout</a></li>
+      </ul>
+    </div>
+  </nav>
+</div>

@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="center">
+        <h2>Enter the Bellow Details to Join Classroom</h2>
+    </div>
+    
+    <form class="form-group m-4" [formGroup]="roomForm" (ngSubmit)="onCreateRoom()">
+        <div class="row">
+            <div class="col-12">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <label for="school">School/College</label>
+                        <input type="text" class="form-control" placeholder="School/College" id="school" required
+                        name="school" formControlName="school">
+                    </div>
+                </div>
+    
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <label for="sub">Subject</label>
+                        <input type="text" class="form-control" placeholder="Subject" id="sub" required
+                        name="sub" formControlName="sub">
+                    </div>
+                </div>
+    
+                <div class="row d-flex justify-content-center">
+                    <div class="col-6">
+                        <label for="max">Max Students</label>
+                        <input type="number" class="form-control" placeholder="Max number of Students to join" id="max" required
+                        name="maxStudents" formControlName="maxStudents">
+                    </div>
+                </div>
+      
+                <div class="row d-flex justify-content-center m-3">
+                    <div class="col-2">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

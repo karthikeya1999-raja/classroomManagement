@@ -1,0 +1,46 @@
+<div class="container mt-3 center">
+    <div class="row">
+        <div class="col-8">
+            <div class="mt-4 p-5 bg-info text-white rounded">
+                <h2>Subject: {{room.subject}}</h2>
+                <h4>Classroom details is below..</h4>
+                <div class="card">
+                    <div class="card-body bg-dark">
+                        <h5 class="card-title">Class room code: {{room.roomCode}}</h5>
+                        <p class="card-text">Class Teacher: {{room.classTeacher.fname+ " " +room.classTeacher.lname}}</p>
+                        <p class="card-text">No of Students: {{room.students.length}}</p>
+                        <p class="card-text">Room size: {{room.maxStudents}} Students</p>
+                    </div>
+                </div>
+                <h4>Students Present in Class</h4>
+                <table class="table table-hover table-striped bg-light text-dark">
+                    <thead>
+                        <tr>
+                            <th>Sl No</th>
+                            <th>Name</th>
+                            <th>Phone</th>
+                            <th>Email</th>
+                            <th>Assignment</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let student of room.students; let i = index">
+                            <td>{{i+1}}</td>
+                            <td>{{student.fname+" "+student.lname}}</td>
+                            <td>{{student.phone}}</td>
+                            <td>{{student.email}}</td>
+                            <td>Submited</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-3 container">
+            <form [formGroup]="fileForm" (submit)="postAssignment()">
+                <label for="assignment" class="form-label"><h2>Post Assignment for Students</h2></label>
+                <input type="file" name="assignment" id="assignment" class="form-control mb-2" (change)="onChangeFile($event)">
+                <input type="submit" class="btn btn-primary" value="Post">
+            </form>
+        </div>
+    </div>
+  </div>
